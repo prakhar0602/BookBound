@@ -4,14 +4,16 @@ const mongoose=require('mongoose')
 const cors=require('cors');
 const bookapi=require('./apis/book')
 const authapi=require('./apis/auth')
+const dotenv=require('dotenv')
+dotenv.config();
 app.use(express.json());
 // app.use(express.urlencoded({extended:true}))
 app.use(cors({
-    origin:['http://localhost:5173'] ,
+    origin:[process.env.Frontend_Link] ,
     methods:["GET","POST","PATCH","DELETE"],
     headers: ["Content-Type", "Authorization", "Origin", "Accept"]
 }))
-mongoose.connect('mongodb+srv://developerking692:BookBound@cluster0.ibohb09.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(()=>{
+mongoose.connect(process.env.Mongo_Link).then(()=>{
     console.log('database connected')
 })
 .catch((e)=>{
