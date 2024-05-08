@@ -9,7 +9,7 @@ const Cart = () => {
     let [rerun , setRun]= useState(false);
     useEffect(()=>{
         async function ab(){
-            let response=await axios.post('http://localhost:8080/get_cart',{id:user._id});
+            let response=await axios.post(`${import.meta.env.VITE_Backend_Link}/get_cart`,{id:user._id});
             response=response.data.cart
             setBooks(response);
             console.log(response)

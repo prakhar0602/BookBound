@@ -11,7 +11,7 @@ const New = () => {
     const [thumbnail,setThumbnail]=useState('')
     async function handleSuccess(files){
         let a={title,price,author,language,url:files[0].link,thumbnail};
-        let response=await axios.post('http://localhost:8080/add_book',a);
+        let response=await axios.post(`${import.meta.env.VITE_Backend_Link}/add_book`,a);
         response=response.data;
         if(response.bool){
             toast.success(response.msg,{

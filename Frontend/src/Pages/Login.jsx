@@ -13,7 +13,7 @@ const Login = () => {
             email:e.target.email.value,
             password:e.target.password.value
         }
-        let response=await axios.post('http://localhost:8080/login',a);
+        let response=await axios.post(`${import.meta.env.VITE_Backend_Link}/login`,a);
         response=response.data;
         if(response.bool){
                 toast.success('Login Successfull',{

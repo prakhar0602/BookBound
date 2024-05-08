@@ -11,7 +11,7 @@ app.use(cors({
     methods:["GET","POST","PATCH","DELETE"],
     headers: ["Content-Type", "Authorization", "Origin", "Accept"]
 }))
-mongoose.connect('mongodb://127.0.0.1:27017/Book_Bound').then(()=>{
+mongoose.connect('mongodb+srv://developerking692:BookBound@cluster0.ibohb09.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(()=>{
     console.log('database connected')
 })
 .catch((e)=>{

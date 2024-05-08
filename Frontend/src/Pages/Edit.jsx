@@ -19,7 +19,7 @@ const Edit = () => {
             thumbnail,
             _id:book._id
         }
-        let response=await axios.patch('http://localhost:8080/edit_book',a);
+        let response=await axios.patch(`${import.meta.env.VITE_Backend_Link}/edit_book`,a);
         response=response.data.bool
         if(response){
             toast.success('Book Edit Successfull',{
