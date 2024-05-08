@@ -8,11 +8,17 @@ const dotenv=require('dotenv')
 dotenv.config();
 app.use(express.json());
 // app.use(express.urlencoded({extended:true}))
-app.use(cors({
-    origin:[process.env.Frontend_Link] ,
+app.use(cors({ 
+    origin:[process.env.Frontend_Link],
+   credentials:true,
     methods:["GET","POST","PATCH","DELETE"],
     headers: ["Content-Type", "Authorization", "Origin", "Accept"]
-}))
+ }));
+// app.use(cors({
+//     origin:[process.env.Frontend_Link] ,
+//     methods:["GET","POST","PATCH","DELETE"],
+//     headers: ["Content-Type", "Authorization", "Origin", "Accept"]
+// }))
 mongoose.connect(process.env.Mongo_Link).then(()=>{
     console.log('database connected')
 })
