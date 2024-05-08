@@ -6,6 +6,7 @@ import {useNavigate} from 'react-router-dom'
 import { edit } from '../Redux/book_slice';
 import { toast } from 'react-toastify';
 import { login } from '../Redux/userSlice';
+
 const Book_Card = (props) => {
     let dispatch=useDispatch()
     let navigate=useNavigate()
@@ -24,7 +25,7 @@ const Book_Card = (props) => {
             setAdded(true);
     },[])
     async function add_cart(){
-        let response=await axios.get(`http://localhost:8080/add_cart/${_id}/${user._id}`);
+        let response=await axios.get(`${import.meta.env.VITE_Backend_Link}/add_cart/${_id}/${user._id}`);
         let u1=response.data.user
         let x=false
         if(u1.cart.includes(_id));
@@ -34,14 +35,14 @@ const Book_Card = (props) => {
         makerun(!run)
     }
     async function buyop(){
-        let response=await axios.post('http://localhost:8080/buy',{_id,user_id:user._id})
+        let response=await axios.post(`${import.meta.env.VITE_Backend_Link}/buy`,{_id,user_id:user._id})
         if(response.data.bool){
             setBuyed(true)
         }
     }
     async function delete_book(){
         console.log(_id)
-        let response=await axios.delete(`http://localhost:8080/delete_book/${_id}`);
+        let response=await axios.delete(`${import.meta.env.VITE_Backend_Link}/delete_book/${_id}`);
         makerun(!run)  
     }
     async function edit_book(){

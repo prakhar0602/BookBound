@@ -44,7 +44,12 @@ const Navbar = () => {
         <div className='flex items-center justify-center gap-10'>
         <Link to='/cart'>
         <div className='flex items-center justify-center gap-2'>
-            <p className='text-4xl'><ion-icon name="cart-outline"></ion-icon></p>
+            {
+                user?(
+                    <p className='text-4xl'><ion-icon name="cart-outline"></ion-icon></p>
+
+                ):(<span></span>)
+            }
         </div>
         </Link>
         <div className='flex items-center justify-center gap-2'>

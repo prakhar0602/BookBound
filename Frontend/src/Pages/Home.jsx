@@ -8,7 +8,7 @@ const Home = () => {
     let [run,makerun]=useState(false)
     useEffect(()=>{
         async function ab(){
-            let response=await axios.get('http://localhost:8080/get_books');
+            let response=await axios.get(`${import.meta.env.VITE_Backend_Link}/get_books`);
             response=response.data.books;
             setFiles(response);
         }

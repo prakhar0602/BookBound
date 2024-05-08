@@ -10,7 +10,8 @@ const Signup = () => {
             password:e.target.password.value,
             role:e.target.role.value
         }
-        let response=await axios.post('http://localhost:8080/register',a);
+        console.log(import.meta.env.VITE_Backend_Link)
+        let response=await axios.post(`${import.meta.env.VITE_Backend_Link}/register`,a);
         response=response.data;
         if(response.bool){
             if(response.bool1){
